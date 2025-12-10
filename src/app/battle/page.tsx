@@ -240,8 +240,8 @@ export default function BattlePage() {
     }, [txSuccess, refetchRecord])
 
     // Get wins and losses from contract
-    const wins = Number(playerRecord?.[1] || 0)
-    const losses = Number(playerRecord?.[2] || 0)
+    const wins = Number(playerRecord?.wins || 0)
+    const losses = Number(playerRecord?.losses || 0)
     const winRate = wins + losses > 0 ? Math.round((wins / (wins + losses)) * 100) : 0
 
     return (

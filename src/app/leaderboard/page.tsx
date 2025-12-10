@@ -109,11 +109,11 @@ export default function LeaderboardPage() {
                             <p className="text-xs text-gray-400 mb-1">Your Record</p>
                             <div className="flex gap-4">
                                 <div>
-                                    <span className="text-green-400 font-bold">{Number(playerRecord[1])}</span>
+                                    <span className="text-green-400 font-bold">{Number(playerRecord.wins)}</span>
                                     <span className="text-xs text-gray-500 ml-1">W</span>
                                 </div>
                                 <div>
-                                    <span className="text-red-400 font-bold">{Number(playerRecord[2])}</span>
+                                    <span className="text-red-400 font-bold">{Number(playerRecord.losses)}</span>
                                     <span className="text-xs text-gray-500 ml-1">L</span>
                                 </div>
                             </div>
@@ -208,6 +208,6 @@ export default function LeaderboardPage() {
                     START BATTLING TO ENTER RANKINGS
                 </Link>
             )}
-        </div>
+        </main>
     )
 }
