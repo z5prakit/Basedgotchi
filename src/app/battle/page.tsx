@@ -95,8 +95,17 @@ export default function BattlePage() {
     const [showSignButton, setShowSignButton] = useState(false)
 
     // Contract interactions
-    const { writeContract, data: hash, isPending: isRecording } = useWriteContract()
+    const { writeContract, data: hash, isPending: isRecording, error: writeError } = useWriteContract()
     const { isSuccess: txSuccess } = useWaitForTransactionReceipt({ hash })
+
+    // Log errors
+    useEffect(() => {
+        if (writeError) {
+            console.error('Write contract error:', writeError)
+            setLog(prev => [...prev, `❌ Transaction failed: ${writeError.message}`])
+            setShowSignButton(true)
+        }
+    }, [writeError])
 
     // Read player record from contract
     const { data: playerRecord, refetch: refetchRecord } = useReadContract({
@@ -208,10 +217,14 @@ export default function BattlePage() {
         }, 1500)
     }
 
-    const recordBattleOnChain = async () => {
-        if (!isConnected || !address || !opponent || !battleResult) return
+    const recordBattleOnChain = () => {
+        if (!isConnected || !address || !opponent || !battleResult) {
+            setLog(prev => [...prev, "⚠️ Please connect wallet first"])
+            return
+        }
 
         try {
+            setLog(prev => [...prev, "Opening wallet for signature..."])
             writeContract({
                 address: BATTLE_CONTRACT_ADDRESS,
                 abi: BATTLE_CONTRACT_ABI,
@@ -224,9 +237,10 @@ export default function BattlePage() {
                 ]
             })
             setShowSignButton(false)
-        } catch (e) {
+        } catch (e: any) {
             console.error('Failed to record battle:', e)
-            setLog(prev => [...prev, "Failed to sign transaction"])
+            setLog(prev => [...prev, `❌ Error: ${e?.message || 'Failed to sign'}`])
+            setShowSignButton(true)
         }
     }
 
