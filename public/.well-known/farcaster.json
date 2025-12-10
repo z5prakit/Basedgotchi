@@ -1,0 +1,36 @@
+{
+    "accountAssociation": {
+        "header": "eyJmaWQiOjkxMiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDk4ODFhRTM0MTRmYjgwNzhCNjY5NDdkODhCYTdkMzJCMTVFNTE4OUUiLCJ0aW1lc3RhbXAiOjE3MDc4MjU3NDZ9",
+        "payload": "eyJkb21haW4iOiJiYXNhZWdvY2hpLnZlcmNlbC5hcHAifQ",
+        "signature": "MHhkNzQzODllOTI5OWJlNmQyMDc2NTlhNDExMTAxYmM5ODQ0NjM5YTU4YjU1N2EyNDQyMTY1MWM3YmMwZTYzMTI0M2NjMTk5ODdmZTg3M2VmODQ5NTViOWJjODYzZDI1YmVhN2JmYzUzZjM5OGU4Y2QxZTk2N2UyNzU0Y2M2MWIi"
+    },
+    "miniapp": {
+        "version": "1",
+        "name": "Basaegochi",
+        "subtitle": "Raise your digital pet on Base chain",
+        "description": "A Tamagotchi-style virtual pet game where you can raise, train, and battle your pets on the Base blockchain",
+        "screenshotUrls": [
+            "https://basaegochi.vercel.app/splash.png"
+        ],
+        "iconUrl": "https://basaegochi.vercel.app/icon.png",
+        "splashImageUrl": "https://basaegochi.vercel.app/splash.png",
+        "splashBackgroundColor": "#0052FF",
+        "homeUrl": "https://basaegochi.vercel.app",
+        "webhookUrl": "https://basaegochi.vercel.app/api/frame",
+        "primaryCategory": "games",
+        "tags": [
+            "tamagotchi",
+            "pets",
+            "battle",
+            "base"
+        ],
+        "heroImageUrl": "https://basaegochi.vercel.app/splash.png",
+        "tagline": "Raise, Battle, Earn on Base",
+        "ogTitle": "Basaegochi - Virtual Pet Game on Base",
+        "ogDescription": "Raise your digital pet, battle other players, and earn rewards on Base blockchain",
+        "ogImageUrl": "https://basaegochi.vercel.app/splash.png"
+    },
+    "baseBuilder": {
+        "ownerAddress": "0xYourOwnerAddressHere"
+    }
+}
