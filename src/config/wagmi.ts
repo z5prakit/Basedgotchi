@@ -1,12 +1,17 @@
 import { http, createConfig } from 'wagmi'
 import { base } from 'wagmi/chains'
-import { injected } from 'wagmi/connectors'
+import { coinbaseWallet } from 'wagmi/connectors'
 
 export const config = createConfig({
     chains: [base],
-    connectors: [injected({ shimDisconnect: true })],
+    connectors: [
+        coinbaseWallet({
+            appName: 'Basaegochi',
+            preference: 'smartWalletOnly',
+        }),
+    ],
     transports: {
-        [base.id]: http('https://mainnet.base.org'),
+        [base.id]: http(),
     },
     ssr: true,
 })
