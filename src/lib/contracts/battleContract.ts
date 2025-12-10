@@ -1,4 +1,16 @@
-export const BATTLE_CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_BATTLE_CONTRACT_ADDRESS as `0x${string}` || '0x8853C1dA8CD2bb1701804039F1d5AEBDAe95b52A';
+// Clean and validate the contract address
+const cleanAddress = (addr: string | undefined): `0x${string}` => {
+    if (!addr) return '0x8853C1dA8CD2bb1701804039F1d5AEBDAe95b52A'
+    // Remove any whitespace, newlines, and non-hex characters except 0x prefix
+    const cleaned = addr.trim().replace(/[^\da-fA-Fx]/g, '')
+    // Ensure it starts with 0x and is the right length
+    if (cleaned.startsWith('0x') && cleaned.length === 42) {
+        return cleaned as `0x${string}`
+    }
+    return '0x8853C1dA8CD2bb1701804039F1d5AEBDAe95b52A'
+}
+
+export const BATTLE_CONTRACT_ADDRESS = cleanAddress(process.env.NEXT_PUBLIC_BATTLE_CONTRACT_ADDRESS);
 
 export const BATTLE_CONTRACT_ABI = [
   {
