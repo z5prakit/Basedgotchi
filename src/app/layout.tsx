@@ -18,6 +18,7 @@ export const metadata: Metadata = {
         }],
     },
     other: {
+        "base:app_id": "693924ab8a7c4e55fec73ce7",
         "fc:miniapp": JSON.stringify({
             version: "1",
             imageUrl: "https://basaegochi.vercel.app/splash.png",
