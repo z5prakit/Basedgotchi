@@ -20,12 +20,12 @@ export function useAppData() {
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved)
-                    setPetData({ ...INITIAL_PET_STATE, ...parsed })
+                    queueMicrotask(() => setPetData({ ...INITIAL_PET_STATE, ...parsed }))
                 } catch (e) {
                     console.error("Failed to parse save data", e)
                 }
             }
-            setIsLoaded(true)
+            queueMicrotask(() => setIsLoaded(true))
         }
     }, [])
 

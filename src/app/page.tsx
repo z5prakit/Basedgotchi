@@ -12,7 +12,7 @@ export default function Home() {
     useEffect(() => {
         // Show onboarding if no pet created yet
         if (isLoaded && !petData.petType) {
-            setShowOnboarding(true)
+            queueMicrotask(() => setShowOnboarding(true))
         }
     }, [isLoaded, petData.petType])
 
@@ -28,9 +28,9 @@ export default function Home() {
             <section className="flex-1 flex flex-col items-center justify-center w-full gap-8">
                 <div className="relative w-64 h-64 bg-blue-50 rounded-full border-4 border-base-blue flex items-center justify-center overflow-hidden">
                     {petData.petType ? (
-                        <img src={`/sprites/pets/${petData.petType}-baby.png`} className="w-32 h-32 pixelated animate-bounce object-contain" />
+                        <img src={`/sprites/pets/${petData.petType}-baby.png`} alt={`${petData.petType} baby`} className="w-32 h-32 pixelated animate-bounce object-contain" />
                     ) : (
-                        <img src="/sprites/pets/base-bull-egg.png" /* Placeholder for egg */ className="w-32 h-32 pixelated grayscale object-contain" />
+                        <img src="/sprites/pets/base-bull-egg.png" alt="Base bull egg" className="w-32 h-32 pixelated grayscale object-contain" />
                     )}
                 </div>
 

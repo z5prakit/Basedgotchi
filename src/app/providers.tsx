@@ -5,7 +5,7 @@ import { WagmiProvider } from 'wagmi'
 import { OnchainKitProvider } from '@coinbase/onchainkit'
 import sdk from '@farcaster/miniapp-sdk'
 import { config } from '../config/wagmi'
-import { base } from 'wagmi/chains'
+import { BASE_CHAIN } from '../config/base'
 
 export function Providers({ children }: { children: ReactNode }) {
     const [queryClient] = useState(() => new QueryClient())
@@ -22,7 +22,7 @@ export function Providers({ children }: { children: ReactNode }) {
             <QueryClientProvider client={queryClient}>
                 <OnchainKitProvider
                     apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
-                    chain={base}
+                    chain={BASE_CHAIN}
                     config={{
                         appearance: {
                             mode: 'dark',
